@@ -1,0 +1,5 @@
+Простая веб страница с именем хоста
+билд:
+docker build . -t rh:1.0
+
+docker run --name returnHostname -p 5555:1990 rh:1.0

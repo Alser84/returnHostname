@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: return-hostname
+  namespace: rh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rh
+  template:
+    metadata:
+      labels:
+        app: rh
+    spec:
+      containers:
+      - image: rh:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        imagePullPolicy: Never
+        name: rh
+        ports:
+          - containerPort: 5000
